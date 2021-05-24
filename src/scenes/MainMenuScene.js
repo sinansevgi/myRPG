@@ -12,6 +12,14 @@ export default class MainMenuScene extends Phaser.Scene {
   }
 
   create() {
+    this.welcome = this.add.text(400, 100, 'Aracna Fighter', {
+      color: '#FFFFFF',
+      fontSize: 60,
+      fontStyle: 'bold',
+      textAlign: 'center',
+      fontFamily: 'Train One',
+    }).setOrigin(0.5);
+
     this.btnPlay = this.add.sprite(
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,

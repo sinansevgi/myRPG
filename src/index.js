@@ -1,5 +1,6 @@
 import * as Phaser from 'phaser';
 import MainMenuScene from './scenes/MainMenuScene';
+import UserNameScene from './scenes/UserNameScene';
 
 const config = {
   type: Phaser.AUTO,
@@ -7,8 +8,10 @@ const config = {
   height: 600,
   backgroundColor: '#222222',
   parent: 'game-container',
-  scene: [MainMenuScene],
+  dom: {
+    createContainer: true,
+  },
+  scene: [MainMenuScene, UserNameScene],
 };
 
 const game = new Phaser.Game(config);
-game.scene.start();
