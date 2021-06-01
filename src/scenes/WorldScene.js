@@ -1,3 +1,6 @@
+import * as Phaser from 'phaser';
+import gameState from '../gameconfig/gameState';
+
 export default class WorldScene extends Phaser.Scene {
   constructor() {
     super('World');
@@ -31,6 +34,9 @@ export default class WorldScene extends Phaser.Scene {
     camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
     this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.userHP = this.add.text(600, 10, `HP: ${gameState.playerHP} Score: ${gameState.score}`);
+    this.userHP.setScrollFactor(0);
 
     const { anims } = this;
     anims.create({
@@ -72,12 +78,18 @@ export default class WorldScene extends Phaser.Scene {
     for (let i = 0; i < 30; i += 1) {
       const x = Phaser.Math.RND.between(0, map.widthInPixels);
       const y = Phaser.Math.RND.between(0, map.heightInPixels);
-      this.spawns.create(x, y, 20, 20);
+      this.spawns.create(x, y, 32, 32);
     }
     this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
-    1;
 
-    // this.sys.events.on('wake', this.wake, this);
+    this.food = this.physics.add.group({ classType: Phaser.GameObjects.Sprite });
+    for (let i = 0; i < 50; i += 1) {
+      const x = Phaser.Math.RND.between(0, map.widthInPixels);
+      const y = Phaser.Math.RND.between(0, map.heightInPixels);
+      const frame = Phaser.Math.RND.between(0, 4);
+      this.food.create(x, y, 'foods', frame);
+    }
+    this.physics.add.overlap(this.player, this.food, this.eatFood, false, this);
   }
 
   update() {
@@ -98,6 +110,11 @@ export default class WorldScene extends Phaser.Scene {
     } else {
       this.player.anims.stop();
     }
+    this.updateScore();
+  }
+
+  updateScore() {
+    this.userHP.setText(`HP: ${gameState.playerHP} Score: ${gameState.score}`);
   }
 
   onMeetEnemy(player, zone) {
@@ -105,6 +122,12 @@ export default class WorldScene extends Phaser.Scene {
     zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
     this.cameras.main.shake(100).flash(500);
     this.scene.switch('BattleScene');
+  }
+
+  eatFood(player, food) {
+    food.destroy();
+    gameState.playerHP += 5;
+    this.cameras.main.shake(50, 0.01);
   }
 
   wake() {

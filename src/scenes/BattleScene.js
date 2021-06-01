@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import gameState from '../gameconfig/gameState';
 import PlayerCharacter from '../modules/units/playerCharacter';
 import Enemy from '../modules/units/spiderCharacter';
@@ -14,9 +15,9 @@ export default class BattleScene extends Phaser.Scene {
   }
 
   startBattle() {
-    const player = new PlayerCharacter(this, 700, 150, 'player', 1, gameState.playerName, gameState.playerHP, 20);
+    const player = new PlayerCharacter(this, 700, 150, 'player', 1, gameState.playerName, gameState.playerHP, Math.floor(gameState.playerHP / 4));
     this.add.existing(player);
-    const enemySize = Math.floor(Math.random() * 100);
+    const enemySize = Math.floor(Math.random() * 150);
     const enemy = new Enemy(this, 100, 150, 'spider', 5, 'Spider', enemySize, Math.floor(enemySize / 3), Math.floor((enemySize / 50) + 1));
     this.add.existing(enemy);
     this.player = player;

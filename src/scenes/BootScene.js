@@ -1,3 +1,5 @@
+import * as Phaser from 'phaser';
+
 export default class BootScene extends Phaser.Scene {
   constructor() {
     super('Boot');
@@ -16,6 +18,10 @@ export default class BootScene extends Phaser.Scene {
     this.load.spritesheet('spider', '../assets/spider.png', {
       frameWidth: 32,
       frameHeight: 32,
+    });
+    this.load.spritesheet('foods', '../assets/food_items16x16.png', {
+      frameWidth: 16,
+      frameHeight: 16,
     });
     this.load.html('player_form', '../assets/playerForm.html');
   }
