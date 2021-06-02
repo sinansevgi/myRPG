@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import gameState from '../gameconfig/gameState';
 
 export default class UserNameScene extends Phaser.Scene {
@@ -14,7 +15,7 @@ export default class UserNameScene extends Phaser.Scene {
       color: '#FFFFFF',
       fontSize: 30,
       fontStyle: 'bold',
-      textAlign: 'center',
+      align: 'center',
       fontFamily: 'Train One',
     }).setOrigin(0.5);
 

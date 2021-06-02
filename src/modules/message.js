@@ -1,3 +1,5 @@
+import * as Phaser from 'phaser';
+
 export default class Message extends Phaser.GameObjects.Container {
   constructor(scene, events) {
     super(scene, 400, 100);
@@ -10,7 +12,7 @@ export default class Message extends Phaser.GameObjects.Container {
     this.text = new Phaser.GameObjects.Text(scene, 0, 0, '', {
       color: '#ffffff',
       align: 'center',
-      fontSize: 24,
+      fontSize: 20,
       wordWrap: {
         width: 160,
         useAdvancedWrap: true,

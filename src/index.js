@@ -1,4 +1,3 @@
-import * as Phaser from 'phaser';
-import config from './gameconfig/config';
+import runGame from './game';
 
-const game = new Phaser.Game(config);
+runGame();

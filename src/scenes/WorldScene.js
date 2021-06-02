@@ -129,11 +129,4 @@ export default class WorldScene extends Phaser.Scene {
     gameState.playerHP += 5;
     this.cameras.main.shake(50, 0.01);
   }
-
-  wake() {
-    this.cursors.left.reset();
-    this.cursors.right.reset();
-    this.cursors.up.reset();
-    this.cursors.down.reset();
-  }
 }

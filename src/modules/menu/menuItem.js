@@ -1,9 +1,11 @@
+import * as Phaser from 'phaser';
+
 export default class MenuItem extends Phaser.GameObjects.Text {
   constructor(x, y, text, scene) {
     super(scene, x, y, text, {
       color: '#ffffff',
       align: 'left',
-      fontSize: 40,
+      fontSize: 32,
       fontFamily: 'Train One',
     });
   }

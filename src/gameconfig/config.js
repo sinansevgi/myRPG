@@ -6,6 +6,7 @@ import WorldScene from '../scenes/WorldScene';
 import BattleScene from '../scenes/BattleScene';
 import BattleUIScene from '../scenes/BattleUIScene';
 import EndgameScene from '../scenes/EndgameScene';
+import ScoreBoard from '../scenes/ScoreBoardScene';
 
 const config = {
   type: Phaser.AUTO,
@@ -33,6 +34,7 @@ const config = {
     BattleScene,
     BattleUIScene,
     EndgameScene,
+    ScoreBoard,
   ],
 };
 

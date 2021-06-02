@@ -49,6 +49,7 @@ export default class BattleScene extends Phaser.Scene {
     const result = this.checkEndBattle();
     if (result.victory || result.gameOver) {
       if (result.gameOver) {
+        this.scene.sleep('BattleUI');
         this.scene.run('EndGame');
         return;
       }
@@ -84,6 +85,6 @@ export default class BattleScene extends Phaser.Scene {
 
   wake() {
     this.scene.run('BattleUI');
-    this.time.addEvent({ delay: 2000, callback: this.exitBattle, callbackScope: this });
+    this.time.addEvent({ delay: 3000, callback: this.exitBattle, callbackScope: this });
   }
 }

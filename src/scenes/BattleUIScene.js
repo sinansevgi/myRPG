@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import EnemyMenu from '../modules/menu/enemyMenu';
 import ActionsMenu from '../modules/menu/actionsMenu';
 import Message from '../modules/message';
@@ -50,9 +51,11 @@ export default class BattleUIScene extends Phaser.Scene {
     this.enemiesMenu.remap(this.battleScene.enemy);
     this.playerMenu.remap();
     if (this.battleScene.selected_unit instanceof PlayerCharacter) {
-      this.playerMenu.select();
+      this.actionsMenu.select();
       this.enemiesMenu.deselect();
+      this.playerMenu.select();
     } else {
+      this.actionsMenu.deselect();
       this.playerMenu.deselect();
       this.enemiesMenu.select();
     }
@@ -78,8 +81,6 @@ export default class BattleUIScene extends Phaser.Scene {
   onAttackEnemy(index) {
     const action = this.currentMenu.menuItems[index].text;
     this.battleScene.receivePlayerSelection(action);
-    this.actionsMenu.deselect();
-    this.currentMenu = null;
     this.updateMenus();
   }
 
@@ -88,8 +89,8 @@ export default class BattleUIScene extends Phaser.Scene {
   }
 
   onEnemy() {
-    this.actionsMenu.deselect();
     this.currentMenu = null;
+    this.actionsMenu.deselect();
     this.enemy.attack(this.player);
     this.updateMenus();
   }
