@@ -37,6 +37,9 @@ Prepare for adventure travel around the town, feast with delicious food of your 
 [Play game from live demo](https://optimistic-varahamihira-ee410b.netlify.app)
 
 
+## Game Design Document
+[Click here](./docs/Aracna%20Fighter%20Game%20Design%20Document.md) to access game design document.
+
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.

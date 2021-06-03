@@ -46,6 +46,11 @@ export default class BattleScene extends Phaser.Scene {
     this.scene.switch('World');
   }
 
+  exitBattle() {
+    this.scene.sleep('BattleUI');
+    this.scene.switch('World');
+  }
+
   nextTurn() {
     const result = this.checkEndBattle();
     if (result.victory || result.gameOver) {
@@ -79,5 +84,10 @@ export default class BattleScene extends Phaser.Scene {
       this.endBattle();
     }
     this.time.addEvent({ delay: 2000, callback: this.nextTurn, callbackScope: this });
+  }
+
+  wake() {
+    this.scene.run('BattleUI');
+    this.time.addEvent({ delay: 2000, callback: this.exitBattle, callbackScope: this });
   }
 }
