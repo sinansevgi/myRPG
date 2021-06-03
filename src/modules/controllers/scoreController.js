@@ -7,14 +7,14 @@ class ScoreController {
 
   async postScore(data) {
     const response = await axios.post(this.url, data)
-      .then((response) => response.data)
+      .then((response) => response)
       .catch((error) => error);
     return response;
   }
 
   async getScores() {
     const leaderboard = await axios.get(this.url)
-      .then((response) => response.data.result).catch((error) => error);
+      .then((response) => response).catch((error) => error);
     return leaderboard;
   }
 }

@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 import MenuItem from './menuItem';
 
 export default class Menu extends Phaser.GameObjects.Container {
@@ -48,8 +49,5 @@ export default class Menu extends Phaser.GameObjects.Container {
     }
     this.menuItems.length = 0;
     this.menuItemIndex = 0;
-  }
-
-  confirm() {
   }
 }

@@ -18,7 +18,7 @@ export default class ScoreBoard extends Phaser.Scene {
   async createLeaderboard() {
     let textY = 150;
     const leaderboard = await this.scoreController.getScores();
-    const result = leaderboard.sort((b, a) => a.score - b.score).slice(0, 10);
+    const result = leaderboard.data.result.sort((b, a) => a.score - b.score).slice(0, 10);
     const styleText = {
       color: '#000000',
       fontSize: 20,
