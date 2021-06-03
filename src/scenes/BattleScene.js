@@ -39,6 +39,7 @@ export default class BattleScene extends Phaser.Scene {
   }
 
   endBattle() {
+    this.selected_unit = null;
     this.player.destroy();
     this.enemy.destroy();
     this.scene.sleep('BattleUI');
@@ -53,9 +54,11 @@ export default class BattleScene extends Phaser.Scene {
         this.scene.run('EndGame');
         return;
       }
-      gameState.score += this.enemy.scale;
-      this.endBattle();
-      return;
+      if (result.victory) {
+        gameState.score += this.enemy.scale;
+        this.endBattle();
+        return;
+      }
     }
     if (this.selected_unit instanceof PlayerCharacter) {
       this.events.emit('PlayerSelect', this.enemy);
@@ -64,7 +67,7 @@ export default class BattleScene extends Phaser.Scene {
       this.selected_unit = this.player;
       gameState.playerHP = this.player.hp;
       this.events.emit('UpdateMenu');
-      this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
+      this.time.addEvent({ delay: 2000, callback: this.nextTurn, callbackScope: this });
     }
   }
 
@@ -75,16 +78,6 @@ export default class BattleScene extends Phaser.Scene {
     } else {
       this.endBattle();
     }
-    this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
-  }
-
-  exitBattle() {
-    this.scene.sleep('BattleUI');
-    this.scene.switch('World');
-  }
-
-  wake() {
-    this.scene.run('BattleUI');
-    this.time.addEvent({ delay: 3000, callback: this.exitBattle, callbackScope: this });
+    this.time.addEvent({ delay: 2000, callback: this.nextTurn, callbackScope: this });
   }
 }
