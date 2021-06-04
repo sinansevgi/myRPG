@@ -35,9 +35,9 @@ The second is battle physics which players can select battle actions using arrow
 ### Actions
 
 Battle has three actions. 
-Attack: Players can attack spiders. This reduces amount of health spiders as player hitpoints.
-Run: If the spider too big to defeat, they should run from it. This move most strategical move in the game. In order to get higher points, players should use this move.
-Bite: This action can only be made by spiders. If the player attacks the spider, as a response spider will bite the player.
+- Attack: Players can attack spiders. This reduces amount of health spiders as player hitpoints.
+- Run: If the spider too big to defeat, they should run from it. This move most strategical move in the game. In order to get higher points, players should use this move.
+- Bite: This action can only be made by spiders. If the player attacks the spider, as a response spider will bite the player.
 
 ### Game Art
 
