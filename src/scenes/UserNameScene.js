@@ -3,9 +3,7 @@ import gameState from '../gameconfig/gameState';
 
 export default class UserNameScene extends Phaser.Scene {
   constructor() {
-    super({
-      key: 'UserName',
-    });
+    super('UserName');
   }
 
   create() {

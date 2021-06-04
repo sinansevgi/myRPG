@@ -4,9 +4,7 @@ import ScoreController from '../modules/controllers/scoreController';
 
 export default class EndgameScene extends Phaser.Scene {
   constructor() {
-    super({
-      key: 'EndGame',
-    });
+    super('EndGame');
     this.scoreController = new ScoreController();
   }
 

@@ -3,9 +3,7 @@ import ScoreController from '../modules/controllers/scoreController';
 
 export default class ScoreBoard extends Phaser.Scene {
   constructor() {
-    super({
-      key: 'ScoreBoard',
-    });
+    super('ScoreBoard');
     this.scoreController = new ScoreController();
   }
 
