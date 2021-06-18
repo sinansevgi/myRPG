@@ -34,7 +34,7 @@ Prepare for adventure travel around the town, feast with delicious food of your 
 
 ## Play Online
 
-[Play game from live demo](https://optimistic-varahamihira-ee410b.netlify.app)
+[Play game from live demo](https://aracna-fighter.netlify.app/)
 
 
 ## Game Design Document
